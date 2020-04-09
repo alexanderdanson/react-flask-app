@@ -3,8 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-
+import Alert  from 'react-bootstrap/Alert';
 
 function App() {
 
@@ -16,15 +15,11 @@ function App() {
     });
   }, []);
 
+  const [show, setShow] = useState(true);
+
   return (
     <div className="App">
       <header className="App-header">
-        <link
-          rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-          crossorigin="anonymous"
-        />
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -39,8 +34,24 @@ function App() {
         </a>
 
         <p>The current time is {currentTime}.</p>
-        <Button>Test</Button>
+        <Button href="http://www.alexanderdanson.com" action="">Test</Button>
       </header>
+      <body>
+        <Alert show={show} variant="success">
+          <Alert.Heading>How's it going?!</Alert.Heading>
+          <p>
+            Well done Caroline with your project, you're the best!
+        </p>
+          <hr />
+          <div className="d-flex justify-content-end">
+            <Button onClick={() => setShow(false)} variant="outline-success">
+              Close me ya'll!
+          </Button>
+          </div>
+        </Alert>
+
+        {!show && <Button onClick={() => setShow(true)} variant="outline-danger">Show Alert</Button>}
+      </body>
     </div>
   );
 }
