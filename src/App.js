@@ -34,7 +34,7 @@ function App() {
         </a>
 
         <p>The current time is {currentTime}.</p>
-        <Button href="http://www.alexanderdanson.com" action="">Test</Button>
+        <Button onClick={() => window.location.reload()}>Test</Button>
       </header>
       <body>
         <Alert show={show} variant="success">
